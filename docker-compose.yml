@@ -15,8 +15,17 @@ services:
     restart: always
     container_name: nginx
 
+  php:
+    build: ./php
+    ports:
+      - "9000"
+    volumes:
+      - ./php/config:/usr/local/etc/php
+    networks:
+      - default
+    restart: always
+    container_name: php
+
   #mysql:
   #  build: ./mysql
 
-  #php:
-  #  build: ./php
