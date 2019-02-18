@@ -44,6 +44,7 @@ services:
     networks:
       - default
     container_name: mysql
+
   pma:
     image: "phpmyadmin/phpmyadmin"
     ports:
