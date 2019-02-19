@@ -66,3 +66,12 @@ services:
     links:
       - mysql:db
 
+  adminer:
+    image: "adminer"
+    ports:
+      - "8000:8080"
+    restart: always
+    container_name: adminer
+    links:
+      - mysql:db
+
