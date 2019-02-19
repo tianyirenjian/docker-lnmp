@@ -29,7 +29,19 @@ services:
     restart: always
     links:
       - mysql:mysql
+      - redis:redis
     container_name: php
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    volumes:
+      - ${REDIS_DATA_DIR}:/data:rw
+    restart: always
+    networks:
+      - default
+    container_name: redis
 
   mysql:
     image: "mariadb:10.1.38"
