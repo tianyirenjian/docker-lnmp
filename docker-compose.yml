@@ -15,8 +15,6 @@ services:
     networks:
       - default
     restart: always
-    links:
-      - game2048:game2048
     container_name: nginx
 
   php:
@@ -29,9 +27,6 @@ services:
     networks:
       - default
     restart: always
-    links:
-      - mysql:mysql
-      - redis:redis
     container_name: php
 
   redis:
