@@ -41,7 +41,7 @@ services:
     container_name: redis
 
   mysql:
-    image: "mariadb:10.1.38"
+    image: "mariadb:10.4.3"
     ports:
       - "3306:3306"
     volumes:

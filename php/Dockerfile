@@ -5,7 +5,6 @@ RUN cd ~ \
     && php composer-setup.php --install-dir=/usr/bin php --filename=composer \
     && php -r "unlink('composer-setup.php');" \
     && chmod a+x /usr/bin/composer;\
-    sed -i 's;http://dl-cdn.alpinelinux.org;https://mirrors.tuna.tsinghua.edu.cn;g' /etc/apk/repositories; \
     \
     set -ex; \
     \
