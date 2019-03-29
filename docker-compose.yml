@@ -11,6 +11,7 @@ services:
     volumes:
       - ${SOURCE_DIR}:/var/www
       - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./nginx/ssl/:/etc/nginx/ssl
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - default
@@ -43,7 +44,7 @@ services:
   mysql:
     image: "mariadb:10.4.3"
     ports:
-      - "3306:3306"
+      - "3306"
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d:ro
       - ${MYSQL_DATA_DIR}:/var/lib/mysql:rw
@@ -71,9 +72,4 @@ services:
     container_name: adminer
     links:
       - mysql:db
-
-  game2048:
-    image: "alexwhen/docker-2048"
-    restart: always
-    container_name: game2048
 
