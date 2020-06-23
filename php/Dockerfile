@@ -1,4 +1,4 @@
-FROM php:7.2-fpm-alpine
+FROM php:7.4-fpm-alpine
 RUN cd ~ \
     && wget -c https://getcomposer.org/composer-stable.phar \
     && mv composer-stable.phar /usr/bin/composer \
@@ -9,8 +9,8 @@ RUN cd ~ \
     \
     apk add --no-cache --virtual .build-deps $PHPIZE_DEPS vim openssl-dev freetype-dev libjpeg-turbo-dev libpng-dev libwebp-dev libxpm-dev zlib-dev libzip-dev; \
     \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include --with-jpeg-dir=/usr/include --with-webp-dir=/usr/include --with-png-dir=/usr/include --with-xpm-dir=/usr/include; \
-    docker-php-ext-configure zip --with-libzip; \
+    docker-php-ext-configure gd --with-freetype --with-jpeg; \
+    docker-php-ext-configure zip; \
     docker-php-ext-install gd pdo_mysql mysqli zip opcache; \
     docker-php-ext-install bcmath; \
     wget -c http://pecl.php.net/get/mongodb-1.6.1.tgz; \
